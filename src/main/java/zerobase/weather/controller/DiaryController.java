@@ -31,7 +31,8 @@ public class DiaryController {
 
     // 일기를 날짜에 따라 조회
     @GetMapping("/read/diary")
-    List<Diary> readDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+    List<Diary> readDiary(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return diaryService.readDiary(date);
     }
 
@@ -43,4 +44,22 @@ public class DiaryController {
     ) {
         return diaryService.readDiaries(startDate, endDate);
     }
+
+    // 일기 수정 api
+    @PutMapping("/update/diary")
+    void updateDiary(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            @RequestBody String text
+
+    ) {
+        diaryService.updateDiary(date, text);
+    }
+
+    @DeleteMapping("/delete/diary")
+    void deleteDiary(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date)
+    {
+        diaryService.deleteDiary(date);
+    }
+
 }
