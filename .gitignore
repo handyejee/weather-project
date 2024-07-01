@@ -36,7 +36,8 @@ out/
 ### VS Code ###
 .vscode/
 application.properties
-JpaMemoRepositoryTest
-JdbcMemoRepositoryTest
-Memo
+JpaMemoRepositoryTest.java
+JdbcMemoRepositoryTest.java
+Memo.java
 JdbcMemoRepository
+logs
